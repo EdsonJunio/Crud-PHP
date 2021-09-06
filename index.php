@@ -4,8 +4,8 @@ use App\Entity\Vaga;
 
 require __DIR__ . "/vendor/autoload.php";
 
-$vaga = Vaga::getVagas();
-echo "<pre>"; print_r($obVaga); echo "</pre>"; exit;
+$vagas = Vaga::getVagas();
+
 
 
 

@@ -14,7 +14,7 @@ class Database
      * Host de conexão com o banco de dados
      * @var string
      */
-    const HOST = '';
+    const HOST = '';//xxxxxx
 
 
 
@@ -39,7 +39,7 @@ class Database
      * Senha de acesso ao banco de dados
      * @var string
      */
-    const PASS = '';
+    const PASS = '';//xxxxx
 
 
     /**
