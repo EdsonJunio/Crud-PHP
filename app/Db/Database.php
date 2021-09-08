@@ -14,7 +14,7 @@ class Database
      * Host de conexão com o banco de dados
      * @var string
      */
-    const HOST = '';//xxxxxx
+    const HOST = ''; //xxxxxx
 
 
 
@@ -39,7 +39,7 @@ class Database
      * Senha de acesso ao banco de dados
      * @var string
      */
-    const PASS = '';//xxxxx
+    const PASS = ''; //xxxxx
 
 
     /**
@@ -118,28 +118,49 @@ class Database
         $this->execute($query, array_values($values));
         return $this->connection->lastInsertId();
     }
-     /**
-      *Método responsável por executar uma consulta no banco
-      *
-      * @param string $where
-      * @param string $order
-      * @param string $limit
-      * @param string $fields
-      * @return PDOStatement
-      */
-    public function select($where = null,$order = null, $limit = null,$fields = '*')
+    /**
+     *Método responsável por executar uma consulta no banco
+     *
+     * @param string $where
+     * @param string $order
+     * @param string $limit
+     * @param string $fields
+     * @return PDOStatement
+     */
+    public function select($where = null, $order = null, $limit = null, $fields = '*')
     {
         //Dados da query
-        $where = strlen($where) ? 'WHERE'.$where : '';
-        $order = strlen($order) ? 'ORDER BY'.$order : '';
-        $limit = strlen($limit) ? 'WHERE'.$limit : '';
+        $where = strlen($where) ? 'WHERE ' . $where : '';
+        $order = strlen($order) ? 'ORDER BY' . $order : '';
+        $limit = strlen($limit) ? 'WHERE' . $limit : '';
 
 
-     //Monta a query
-     $query = 'SELECT  '.$fields.' FROM ' .$this->table .' '.$where.' '.$order.' '.$limit;
+        //Monta a query
+        $query = 'SELECT  ' . $fields . ' FROM ' . $this->table . ' ' . $where . ' ' . $order . ' ' . $limit;
 
-     //Exercutar a query
-     return $this->execute($query);
+        //Exercutar a query
+        return $this->execute($query);
     }
 
+    /**
+     * Método responsável por  executar atualizações no banco de dados
+     *
+     * @param string $where
+     * @param  array $values [field => value]
+     * @return boolean
+     */
+    public function update($where, $values)
+    {
+        //Dados da query
+        $fields = array_keys($values);
+
+
+        //Monta query
+        $query = 'UPDATE ' . $this->table . ' SET ' . implode('=?,', $fields) . '=? WHERE ' . $where;
+
+
+        //Executar a query
+        $this->execute($query, array_values($values));
+        return true;
+    }
 }
