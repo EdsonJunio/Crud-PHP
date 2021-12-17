@@ -10,7 +10,7 @@ class Database
 {
 
 
-    /**
+    /**===
      * Host de conexão com o banco de dados
      * @var string
      */

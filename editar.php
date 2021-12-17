@@ -8,7 +8,7 @@ use \App\Entity\Vaga;
 
 
 
-// Validação do id
+// Validação do id.
 if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     header('location: index.php?status=error');
     exit;
@@ -16,7 +16,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 }
 
 
-// Consulta vaga
+// Consulta vaga.
 $obVaga = Vaga::getVaga($_GET['id']);
 
 //Validação da vaga
@@ -29,7 +29,7 @@ if (!$obVaga instanceof Vaga) {
 
 
 
-// VALIDAÇÃO DO POST
+// VALIDAÇÃO DO POST.
 if (isset($_POST['titulo'], $_POST['descricao'], $_POST['ativo'])) {
 
     $obVaga = new Vaga;
