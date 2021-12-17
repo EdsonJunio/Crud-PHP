@@ -16,7 +16,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 }
 
 
-// Consulta vaga
+// Consulta vaga.
 $obVaga = Vaga::getVaga($_GET['id']);
 
 //Validação da vaga
