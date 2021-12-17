@@ -8,7 +8,7 @@ define('TITLE', 'Cadastrar vaga');
 use \App\Entity\Vaga;
 
 $obVaga = new Vaga;
-// VALIDAÇÃO DO POST
+// VALIDAÇÃO DO POST.
 if (isset($_POST['titulo'], $_POST['descricao'], $_POST['ativo'])) {
 
     $obVaga = new Vaga;
