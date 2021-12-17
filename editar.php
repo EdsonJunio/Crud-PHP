@@ -8,7 +8,7 @@ use \App\Entity\Vaga;
 
 
 
-// Validação do id
+// Validação do id.
 if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     header('location: index.php?status=error');
     exit;
